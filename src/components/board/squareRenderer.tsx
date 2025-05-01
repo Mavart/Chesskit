@@ -51,10 +51,10 @@ export function getSquareRenderer({
           {playableSquareStyle && <div style={playableSquareStyle} />}
           {moveClassification && showPlayerMoveIcon && square === toSquare && (
             <Image
-              src={`/icons/${moveClassification}.png`}
+              src={`/icons/${moveClassification}.svg`}
               alt="move-icon"
-              width={35}
-              height={35}
+              width={36}
+              height={36}
               style={{
                 position: "absolute",
                 top: "max(-12px, -1.8vw)",

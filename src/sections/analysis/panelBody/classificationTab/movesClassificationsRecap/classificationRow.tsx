@@ -98,7 +98,7 @@ export default function ClassificationRow({ classification }: Props) {
         wrap="nowrap"
       >
         <Image
-          src={`/icons/${classification}.png`}
+          src={`/icons/${classification}.svg`}
           alt="move-icon"
           width={18}
           height={18}

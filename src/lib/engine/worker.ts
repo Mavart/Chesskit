@@ -20,7 +20,7 @@ export const getEngineWorkers = (
   const workersNb = workersInputNb ?? maxWorkersNb;
 
   for (let i = 0; i < workersNb; i++) {
-    const worker = new Worker(enginePath);
+    const worker = new window.Worker(enginePath);
 
     const engineWorker: EngineWorker = {
       isReady: false,

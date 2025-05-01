@@ -3,6 +3,7 @@ import { Chessboard } from "react-chessboard";
 import { PrimitiveAtom, atom, useAtomValue, useSetAtom } from "jotai";
 import {
   Arrow,
+  CustomPieces,
   CustomSquareRenderer,
   PromotionPieceOption,
   Square,
@@ -195,7 +196,7 @@ export default function Board({
       const bestMoveArrow = [
         bestMove.slice(0, 2),
         bestMove.slice(2, 4),
-        moveClassificationColors[MoveClassification.Best],
+        moveClassificationColors[MoveClassification.Good],
       ] as Arrow;
 
       return [bestMoveArrow];
@@ -203,6 +204,45 @@ export default function Board({
 
     return [];
   }, [position, showBestMoveArrow]);
+
+  const customPieces: CustomPieces = {
+      wP: ({ squareWidth }) => (
+        <img src="/pieces/white_pawn.png" alt="wP" style={{ width: squareWidth, height: squareWidth }}/>
+      ),
+      wR: ({ squareWidth }) => (
+        <img src="/pieces/white_rook.png" alt="wR" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      wN: ({ squareWidth }) => (
+        <img src="/pieces/white_knight.png" alt="wN" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      wB: ({ squareWidth }) => (
+        <img src="/pieces/white_bishop.png" alt="wB" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      wQ: ({ squareWidth }) => (
+        <img src="/pieces/white_queen.png" alt="wQ" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      wK: ({ squareWidth }) => (
+        <img src="/pieces/white_king.png" alt="wK" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      bP: ({ squareWidth }) => (
+        <img src="/pieces/black_pawn.png" alt="bP" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      bR: ({ squareWidth }) => (
+        <img src="/pieces/black_rook.png" alt="bR" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      bN: ({ squareWidth }) => (
+        <img src="/pieces/black_knight.png" alt="bN" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      bB: ({ squareWidth }) => (
+        <img src="/pieces/black_bishop.png" alt="bB" style={{ width: squareWidth, height: squareWidth }} />
+      ),
+      bQ: ({ squareWidth }) => (
+        <img src="/pieces/black_queen.png" alt="bQ" style={{ width: squareWidth, height: squareWidth }} />
+      ), 
+      bK: ({ squareWidth }) => (
+        <img src="/pieces/black_king.png" alt="bK" style={{ width: squareWidth, height: squareWidth }} />
+      )    
+    };
 
   const SquareRenderer: CustomSquareRenderer = useMemo(() => {
     return getSquareRenderer({
@@ -280,6 +320,13 @@ export default function Board({
             customArrows={customArrows}
             isDraggablePiece={isPiecePlayable}
             customSquare={SquareRenderer}
+            customDarkSquareStyle={{
+              backgroundColor: '#739552'
+            }}
+            customLightSquareStyle={{
+              backgroundColor: '#ebecd0'
+            }}
+            customPieces={customPieces}
             onSquareClick={handleSquareLeftClick}
             onSquareRightClick={handleSquareRightClick}
             onPieceDragBegin={handlePieceDragBegin}

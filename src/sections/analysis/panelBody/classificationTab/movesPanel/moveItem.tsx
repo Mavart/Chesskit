@@ -64,7 +64,7 @@ export default function MoveItem({ san, moveClassification, moveIdx }: Props) {
     >
       {color && (
         <Image
-          src={`/icons/${moveClassification}.png`}
+          src={`/icons/${moveClassification}.svg`}
           alt="move-icon"
           width={14}
           height={14}

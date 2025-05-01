@@ -59,7 +59,7 @@ export default function MoveInfo() {
         <Stack direction="row" alignItems="center" spacing={1}>
           {moveClassification && (
             <Image
-              src={`/icons/${moveClassification}.png`}
+              src={`/icons/${moveClassification}.svg`}
               alt="move-icon"
               width={16}
               height={16}
